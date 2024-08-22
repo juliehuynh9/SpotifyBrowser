@@ -1,0 +1,33 @@
+<div class="row">
+    <div *ngIf="track" class="col-6">
+        <!--TODO: populate with track name-->
+        <h1>{{track.name}}</h1>
+        <p>
+            <!--TODO: link to album page, display album name-->
+            Track on <a *ngIf="track.album" [href]="'/album/' + track.album.id">{{track.album.name}}</a>
+        </p>
+        <div>
+            <tr *ngFor="let artist of track.artists; let i = index">
+                <!--TODO: Populate with row index (start with 1!)-->
+                <td>Artist:</td>
+                <td>
+                    <!--TODO: link to the endpoint for that track, display the track's name-->
+                    <a [href]="'/artist/' + track.artists[i].id">{{track.artists[i].name}}</a>
+                </td>
+                
+            </tr>
+        </div>
+        <p>
+            <!--TODO: populate with track duration-->
+            Duration: {{track.durationStr}}
+        </p>
+        <p>
+            <!--TODO: link to track page on spotify, display track name-->
+            <a class="btn btn-light" role="button" target="_blank" [href]="track.url">Open {{track.name}} on Spotify</a>
+        </p>
+    </div>
+    <div *ngIf="audioFeatures" class="col-6">
+        <!--TODO: loop over types of features and create a thermometer component for each-->
+        <app-thermometer *ngFor="let feature of audioFeatures" [trackFeature]="feature" [ngClass]="{'active': first}"></app-thermometer>
+    </div>
+</div>

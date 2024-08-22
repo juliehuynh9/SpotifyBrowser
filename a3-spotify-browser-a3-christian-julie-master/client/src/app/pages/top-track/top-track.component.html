@@ -1,0 +1,14 @@
+<ng-container class="row">
+    <!-- Top Tracks -->
+    <h1>{{ name }}'s Top Tracks</h1>
+    <p>
+        <app-track-list [tracks]="tracks"></app-track-list>
+    </p>
+</ng-container>
+<ng-container class="col-md-6">
+    <!-- Top Artists -->
+    <h1>{{ name }}'s Top Artists</h1>
+    <p>
+        <app-carousel [resources]="resources" [carouselId]="topArtists"></app-carousel>
+    </p>
+</ng-container>
